@@ -320,6 +320,10 @@ void ReadALConfig(void) noexcept
             LoadConfigFromFile(f);
     }
 }
+#elif Rtt_NINTENDO_ENV
+void ReadALConfig(void) noexcept
+{
+}
 #else
 void ReadALConfig(void) noexcept
 {
