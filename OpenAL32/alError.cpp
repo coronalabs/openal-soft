@@ -63,6 +63,8 @@ void alSetError(ALCcontext *context, ALenum errorCode, const char *msg, ...)
         /* DebugBreak will cause an exception if there is no debugger */
         if(IsDebuggerPresent())
             DebugBreak();
+#elif defined(Rtt_NINTENDO_ENV)
+      assert(0);    //todo
 #elif defined(SIGTRAP)
         raise(SIGTRAP);
 #endif
@@ -93,6 +95,8 @@ START_API_FUNC
 #ifdef _WIN32
             if(IsDebuggerPresent())
                 DebugBreak();
+#elif defined(Rtt_NINTENDO_ENV)
+          assert(0);    //todo
 #elif defined(SIGTRAP)
             raise(SIGTRAP);
 #endif

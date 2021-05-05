@@ -489,6 +489,7 @@ const PathNamePair &GetProcBinary()
     if(!ret.fname.empty() || !ret.path.empty())
         return ret;
 
+#if !defined(Rtt_NINTENDO_ENV)
     al::vector<char> pathname;
 #ifdef __FreeBSD__
     size_t pathlen;
@@ -561,6 +562,7 @@ const PathNamePair &GetProcBinary()
         ret.fname = std::string(pathname.cbegin(), pathname.cend());
 
     TRACE("Got: %s, %s\n", ret.path.c_str(), ret.fname.c_str());
+#endif
     return ret;
 }
 

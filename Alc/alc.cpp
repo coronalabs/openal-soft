@@ -1539,6 +1539,8 @@ static void alcSetError(ALCdevice *device, ALCenum errorCode)
         /* DebugBreak() will cause an exception if there is no debugger */
         if(IsDebuggerPresent())
             DebugBreak();
+#elif defined(Rtt_NINTENDO_ENV)
+      assert(0);    //todo
 #elif defined(SIGTRAP)
         raise(SIGTRAP);
 #endif
